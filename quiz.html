@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Квиз</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <main class="quiz-main">
+        <div class="quiz__wrapper wrapper">
+            <h1 class="main__title">Узнайте, когда и как мы сможем забрать вашу макулатуру?</h1>
+
+            <div class="quiz__content">
+                <div class="quiz__blocks">
+                    <div class="quiz__block quiz__block_first" data-step="0">
+                        <div class="quiz__image-container">
+                            <img src="./img/quiz-1.png" alt="" class="quiz__image">
+                        </div>
+                    </div>
+                    <div class="quiz__block" data-step="1" data-field="paperType">
+                        <div class="quiz__block-left">
+                            <p class="quiz__block-title">1. Какой вид макулатуры вы хотите сдать?</p>
+
+                            <label class="radio-item">
+                                <input type="radio" name="paperType" value="Картон" />
+                                <span class="custom-radio"></span>
+                                Картон
+                            </label>
+                            <label class="radio-item">
+                                <input type="radio" name="paperType" value="Офисная бумага" />
+                                <span class="custom-radio"></span>
+                                Офисная бумага
+                            </label>
+                            <label class="radio-item">
+                                <input type="radio" name="paperType" value="Газеты, журналы" />
+                                <span class="custom-radio"></span>
+                                Газеты, журналы
+                            </label>
+                            <label class="radio-item">
+                                <input type="radio" name="paperType" value="Что-то другое" />
+                                <span class="custom-radio"></span>
+                                Что-то другое
+                            </label>
+                        </div>
+                        <div class="quiz__block-right">
+                            <div class="quiz__image-container">
+                                <img src="./img/quiz-2.png" alt="" class="quiz__image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="quiz__block" data-step="2" data-field="paperAmount">
+                        <div class="quiz__block-left">
+                            <p class="quiz__block-title">2. Сколько у вас макулатуры?</p>
+
+                            <label class="radio-item">
+                                <input type="radio" name="paperAmount" value="До 200" />
+                                <span class="custom-radio"></span>
+                                До 200 кг
+                            </label>
+                            <label class="radio-item">
+                                <input type="radio" name="paperAmount" value="200-300" />
+                                <span class="custom-radio"></span>
+                                200-300 кг
+                            </label>
+                            <label class="radio-item">
+                                <input type="radio" name="paperAmount" value="Свыше 300" />
+                                <span class="custom-radio"></span>
+                                Свыше 300 кг
+                            </label>
+                            <label class="radio-item">
+                                <input type="radio" name="paperAmount" value="Свыше 500" />
+                                <span class="custom-radio"></span>
+                                Свыше 500 кг
+                            </label>
+                        </div>
+                        <div class="quiz__block-right">
+                            <div class="quiz__image-container">
+                                <img src="./img/quiz-3.png" alt="" class="quiz__image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="quiz__block quiz__select-block quiz__align-top" data-step="3" data-field="district">
+                        <div class="quiz__block-left">
+                            <p class="quiz__block-title">3. В каком районе Петербурга вы находитесь?</p>
+
+                            <div class="quiz-question">
+                                <div class="custom-select-wrapper">
+                                    <div class="custom-select" id="district-select">
+                                        <div class="selected" data-value="">Выберите район</div>
+                                        <ul class="select-options">
+                                            <li data-value="Адмиралтейский">Адмиралтейский</li>
+                                            <li data-value="Василеостровский">Василеостровский</li>
+                                            <li data-value="Выборгский">Выборгский</li>
+                                            <li data-value="Калининский">Калининский</li>
+                                            <li data-value="Кировский">Кировский</li>
+                                            <li data-value="Колпинский">Колпинский</li>
+                                            <li data-value="Красногвардейский">Красногвардейский</li>
+                                            <li data-value="Красносельский">Красносельский</li>
+                                            <li data-value="Кронштадтский">Кронштадтский</li>
+                                            <li data-value="Курортный">Курортный</li>
+                                            <li data-value="Ломоносовский">Ломоносовский</li>
+                                            <li data-value="Московский">Московский</li>
+                                            <li data-value="Невский">Невский</li>
+                                            <li data-value="Павловский">Павловский</li>
+                                            <li data-value="Петроградский">Петроградский</li>
+                                            <li data-value="Петродворцовый">Петродворцовый</li>
+                                            <li data-value="Приморский">Приморский</li>
+                                            <li data-value="Пушкинский">Пушкинский</li>
+                                            <li data-value="Фрунзенский">Фрунзенский</li>
+                                            <li data-value="Центральный">Центральный</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="quiz__block-right">
+                            <div class="quiz__image-container">
+                                <img src="./img/quiz-4.png" alt="" class="quiz__image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="quiz__block quiz__align-top" data-step="4" data-field="phone">
+                        <div class="quiz__block-left">
+                            <p class="quiz__block-title">Оставьте свой номер, мы<br>Вам перезвоним</p>
+
+                            <label class="quiz__phone-label" for="phone">Введите телефон</label>
+                            <div class="quiz__phone-input">
+                                <img src="./img/phone-input_ico.png" alt="" class="phone__input-ico">
+                                <input type="tel" id="phone" class="phone__input-field" placeholder="+7 (___) ___-__-__" />
+                            </div>
+                        </div>
+                        <div class="quiz__block-right">
+                            <div class="quiz__image-container">
+                                <img src="./img/quiz-5.png" alt="" class="quiz__image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="quiz__block quiz__final" data-step="5">
+                        <div class="quiz__text-block">
+                            <p class="quiz__block-title">Вывезти  вашу макулатуру будет стоить от 1800 рублей.</p>
+                            <p class="quiz__block-subtitle">Или вы можете приехать к нам по адресу: Санкт-Петербург, Московское шоссе, 13 литер БИ</p>
+                        </div>
+                        <div class="quiz__image-container">
+                            <img src="./img/truck_image.png" alt="" class="quiz__image">
+                        </div>
+                    </div>
+                    <div class="quiz__block quiz__final" data-step="6">
+                        <div class="quiz__text-block">
+                            <p class="quiz__block-title">Спасибо</p>
+                        </div>
+                        <div class="quiz__image-container">
+                            <img src="./img/truck_image.png" alt="" class="quiz__image">
+                        </div>
+                    </div>
+                </div>
+                <div class="quiz__bottom">
+                    <div class="progress-сontainer">
+                        <span class="progress-label">Готово:</span>
+                        <span id="progress-percent" class="progress-percent">0%</span>
+                        <div class="progress-bar">
+                            <div id="progress-fill" class="progress-fill"></div>
+                        </div>
+                    </div>
+                    <div class="quiz__nav">
+                        <div class="quiz__prev">
+                            <button type="button" class="quiz__prev-btn quiz__nav-btn">
+                                <img src="./img/quiz_back.png" alt="Назад" class="back-ico">
+                            </button>
+                        </div>
+                        <div class="quiz__next">
+                            <button type="button" class="quiz__next-btn quiz__nav-btn">
+                                <p class="quiz__next-title">Узнать</p>
+                                <img src="./img/quiz_next.png" alt="Далее" class="next-ico">
+                            </button>
+                            <p class="quiz__next-subtitle">или нажмите <span>Enter</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://unpkg.com/imask"></script>
+    <script src="./js/script.js"></script>
+</body>
+</html>
