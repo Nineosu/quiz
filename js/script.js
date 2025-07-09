@@ -187,7 +187,8 @@ window.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        window.location.href = '../thanks.html';
+        // window.location.href = '../thanks.html';
+        window.location.href = '/quiz/thanks.html';
     });
 
     if (IMask) {
