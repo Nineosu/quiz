@@ -174,7 +174,7 @@ button {
     gap: 5px;
 }
 
-.main {
+.main__bunner {
     background: url("../img/main_bg.png") no-repeat center;
     background-size: cover;
 
@@ -227,12 +227,15 @@ button {
     background: #019839;
     border-radius: 10px;
 }
+.main__link:hover {
+    cursor: pointer;
+}
 
 /* quiz */
-.quiz-main * {
+.quiz * {
     font-family: 'Gilroy';
 }
-.quiz-main .main__title {
+.quiz .main__title {
     /* margin-top: 50px; */
     margin-bottom: 70px;
 
@@ -497,6 +500,67 @@ button {
 .quiz__final .quiz__block-subtitle {
     font-size: 30px;
     line-height: 34px;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.modal-overlay.show {
+    display: flex;
+}
+
+.modal {
+    font-family: 'Gilroy';
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.modal__close {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.modal__submit {
+  margin-top: 20px;
+  font-size: 18px;
+  padding: 12px 20px;
+  background-color: #3a84ff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.thanks__block {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+.thanks__block .quiz__block-title {
+    margin-bottom: 0;
 }
 
 /* Адаптив */

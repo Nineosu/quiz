@@ -4,13 +4,13 @@ window.addEventListener('DOMContentLoaded', () => {
     const nextBtn = document.querySelector('.quiz__next-btn');
     const progressFill = document.querySelector('#progress-fill');
     const progressPercent = document.querySelector('#progress-percent');
-    const quizTitle = document.querySelector('.main__title');
+    const quizTitle = document.querySelector('.quiz .main__title');
     const quizBottom = document.querySelector('.quiz__bottom');
     const finalMessage = document.querySelector('.final-message');
     const selected = document.querySelector('#district-select .selected');
     const customSelect = document.querySelector('.custom-select');
     const options = customSelect.querySelectorAll('.select-options li');
-    const inputField = document.querySelector('#phone');
+    const phoneInputs = document.querySelectorAll('[data-input="phone-input"]');
 
     const quizData = {};
     let quizStepIndex = 0;
@@ -54,7 +54,6 @@ window.addEventListener('DOMContentLoaded', () => {
         nextBtn.querySelector('.quiz__next-title').textContent =
             quizStepIndex === 0 ? nextBtn.dataset.firstLabel || 'Начать' : 'Далее';
 
-        // финальная логика (перед последним экраном)
         if (currentRealStep === 5 || currentRealStep === 6) {
             collectQuizData();
             updateFinalMessage();
@@ -81,7 +80,7 @@ window.addEventListener('DOMContentLoaded', () => {
         const block = document.querySelector(`.quiz__block[data-step="${currentRealStep}"]`);
         const field = block?.dataset.field;
 
-        if (!field) return true; // шаг без ввода, пропускаем
+        if (!field) return true;
 
         switch (field) {
             case "paperType":
@@ -91,8 +90,9 @@ window.addEventListener('DOMContentLoaded', () => {
             case "district":
                 return !!selected.dataset.value;
             case "phone":
-                const rawPhone = inputField.value.replace(/\D/g, '');
-                return rawPhone.length === 11; // +7 и 10 цифр
+                const phoneInput = block.querySelector('[data-input="phone-input"]');
+                const rawPhone = phoneInput?.value.replace(/\D/g, '') || '';
+                return rawPhone.length === 11;
             default:
                 return true;
         }
@@ -157,10 +157,46 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // маска телефона
-    const mask = IMask(inputField, {
-        mask: '+7 (000) 000-00-00'
+    // Модалка
+    const openBtn = document.getElementById('openModalBtn');
+    const closeBtn = document.getElementById('closeModalBtn');
+    const modal = document.getElementById('modalOverlay');
+
+    openBtn.addEventListener('click', () => {
+      modal.classList.add('show');
     });
+
+    closeBtn.addEventListener('click', () => {
+      modal.classList.remove('show');
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('show');
+      }
+    });
+
+    const modalSubmitBtn = document.querySelector('.modal__submit');
+    const modalPhoneInput = document.querySelector('#modalOverlay [data-input="phone-input"]');
+
+    modalSubmitBtn.addEventListener('click', () => {
+        const rawPhone = modalPhoneInput?.value.replace(/\D/g, '') || '';
+
+        if (rawPhone.length !== 11) {
+            alert("Введите корректный номер телефона.");
+            return;
+        }
+
+        window.location.href = '../thanks.html';
+    });
+
+    if (IMask) {
+        phoneInputs.forEach(input => {
+            IMask(input, {
+                mask: '+7 (000) 000-00-00'
+            });
+        });
+    }
 
     updateQuizView();
 });
