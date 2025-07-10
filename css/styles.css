@@ -277,6 +277,7 @@ button {
   position: relative;
   display: inline-block;
   margin-bottom: 30px;
+  max-width: 450px;
 }
 
 .quiz__image {

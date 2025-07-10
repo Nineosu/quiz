@@ -18,16 +18,6 @@ window.addEventListener('DOMContentLoaded', () => {
     let stepOrder = [0, 1, 2, 3, 4, 6]; // стандартный маршрут
     const altStepOrder = [0, 1, 2, 3, 5, 4, 6]; // если < 200 кг
 
-    const progressMap = {
-        0: 0,
-        1: 0,
-        2: 33,
-        3: 66,
-        4: 99,
-        5: 100,
-        6: 100
-    };
-
     function getRadioValue(name) {
         const checked = document.querySelector(`input[name="${name}"]:checked`);
         return checked ? checked.value : null;
@@ -39,8 +29,9 @@ window.addEventListener('DOMContentLoaded', () => {
         const currentBlock = document.querySelector(`.quiz__block[data-step="${currentRealStep}"]`);
         if (currentBlock) currentBlock.classList.add('show');
 
-        progressFill.style.width = `${progressMap[currentRealStep] || 0}%`;
-        progressPercent.textContent = `${progressMap[currentRealStep] || 0}%`;
+        const percent = Math.round((quizStepIndex / (stepOrder.length - 1)) * 100);
+        progressFill.style.width = `${percent}%`;
+        progressPercent.textContent = `${percent}%`;
 
         if (quizStepIndex > 0) quizTitle.classList.add('hide');
         else quizTitle.classList.remove('hide');
